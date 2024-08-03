@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Timeout and Interval</title>
+  </head>
+  <body>
+    <h2>Timeout and Interval</h2>
+    <button onclick="startTimeout()">Start Timeout</button>
+    <button onclick="startInterval()">Start Interval</button>
+    <button onclick="stopInterval()">Stop Interval</button>
+    <p id="output"></p>
+    <script>
+      function startTimeout() {
+        setTimeout(function () {
+          document.getElementById("output").innerText = "Timeout executed!";
+        }, 2000);
+      }
+
+      let intervalId;
+      function startInterval() {
+        let count = 0;
+        intervalId = setInterval(function () {
+          document.getElementById("output").innerText =
+            "Interval count: " + count;
+          count++;
+        }, 1000);
+      }
+
+      function stopInterval() {
+        clearInterval(intervalId);
+      }
+    </script>
+  </body>
+</html>

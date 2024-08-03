@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jQuery Toast Message</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+      .toast {
+        visibility: hidden;
+        min-width: 250px;
+        margin-left: -125px;
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        border-radius: 2px;
+        padding: 16px;
+        position: fixed;
+        z-index: 1;
+        left: 50%;
+        bottom: 30px;
+        font-size: 17px;
+      }
+      .toast.show {
+        visibility: visible;
+        -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        animation: fadein 0.5s, fadeout 0.5s 2.5s;
+      }
+      @-webkit-keyframes fadein {
+        from {
+          bottom: 0;
+          opacity: 0;
+        }
+        to {
+          bottom: 30px;
+          opacity: 1;
+        }
+      }
+      @keyframes fadein {
+        from {
+          bottom: 0;
+          opacity: 0;
+        }
+        to {
+          bottom: 30px;
+          opacity: 1;
+        }
+      }
+      @-webkit-keyframes fadeout {
+        from {
+          bottom: 30px;
+          opacity: 1;
+        }
+        to {
+          bottom: 0;
+          opacity: 0;
+        }
+      }
+      @keyframes fadeout {
+        from {
+          bottom: 30px;
+          opacity: 1;
+        }
+        to {
+          bottom: 0;
+          opacity: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <button id="show-toast">Show Toast</button>
+    <div class="toast" id="toast">This is a toast message</div>
+    <script>
+      (function ($) {
+        $.fn.toast = function (message) {
+          const toast = this;
+          toast.text(message);
+          toast.addClass("show");
+          setTimeout(function () {
+            toast.removeClass("show");
+          }, 3000);
+          return this;
+        };
+      })(jQuery);
+
+      $(document).ready(function () {
+        $("#show-toast").click(function () {
+          $("#toast").toast("This is a toast message");
+        });
+      });
+    </script>
+  </body>
+</html>

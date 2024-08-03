@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Loops</title>
+  </head>
+  <body>
+    <h2>Loops</h2>
+    <button onclick="showForLoop()">For Loop</button>
+    <button onclick="showWhileLoop()">While Loop</button>
+    <button onclick="showDoWhileLoop()">Do-While Loop</button>
+    <button onclick="showNestedLoop()">Nested Loop</button>
+    <p id="output"></p>
+    <script>
+      function showForLoop() {
+        let output = "";
+        for (let i = 0; i < 5; i++) {
+          output += "Number " + i + "\n";
+        }
+        document.getElementById("output").innerText = output;
+      }
+
+      function showWhileLoop() {
+        let output = "";
+        let i = 0;
+        while (i < 5) {
+          output += "Number " + i + "\n";
+          i++;
+        }
+        document.getElementById("output").innerText = output;
+      }
+
+      function showDoWhileLoop() {
+        let output = "";
+        let i = 0;
+        do {
+          output += "Number " + i + "\n";
+          i++;
+        } while (i < 5);
+        document.getElementById("output").innerText = output;
+      }
+
+      function showNestedLoop() {
+        let output = "";
+        for (let i = 0; i < 3; i++) {
+          for (let j = 0; j < 3; j++) {
+            output += `i = ${i}, j = ${j}\n`;
+          }
+        }
+        document.getElementById("output").innerText = output;
+      }
+    </script>
+  </body>
+</html>

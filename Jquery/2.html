@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jQuery Append and Prepend</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  </head>
+  <body>
+    <div id="container">
+      <p>Original content.</p>
+    </div>
+    <button id="append">Append</button>
+    <button id="prepend">Prepend</button>
+    <script>
+      $(document).ready(function () {
+        $("#append").click(function () {
+          $("#container").append("<p>Appended content.</p>");
+        });
+        $("#prepend").click(function () {
+          $("#container").prepend("<p>Prepended content.</p>");
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jQuery Zoom</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+      .zoom img {
+        transition: transform 0.2s ease-in-out;
+      }
+      .zoom img:hover {
+        transform: scale(1.5);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="zoom">
+      <!-- add an image to this folder -->
+      <img src="image1.jpg" alt="Zoom Image" />
+    </div>
+    <script>
+      (function ($) {
+        $.fn.zoom = function () {
+          this.find("img").hover(
+            function () {
+              $(this).css("transform", "scale(1.5)");
+            },
+            function () {
+              $(this).css("transform", "scale(1)");
+            }
+          );
+
+          return this;
+        };
+      })(jQuery);
+
+      $(document).ready(function () {
+        $(".zoom").zoom();
+      });
+    </script>
+  </body>
+</html>

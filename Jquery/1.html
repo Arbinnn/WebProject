@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jQuery Basic Effects</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+      .box {
+        width: 200px;
+        height: 200px;
+        background-color: #f00;
+        margin: 20px;
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="show-hide">Show/Hide</button>
+    <button id="fade-in-out">Fade In/Out</button>
+    <button id="slide-up-down">Slide Up/Down</button>
+    <div class="box"></div>
+    <script>
+      $(document).ready(function () {
+        $("#show-hide").click(function () {
+          $(".box").toggle();
+        });
+        $("#fade-in-out").click(function () {
+          $(".box").fadeToggle();
+        });
+        $("#slide-up-down").click(function () {
+          $(".box").slideToggle();
+        });
+      });
+    </script>
+  </body>
+</html>

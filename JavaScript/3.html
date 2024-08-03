@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Conditional Statements</title>
+  </head>
+  <body>
+    <h2>Conditional Statements</h2>
+    <button onclick="showIf()">If Statement</button>
+    <button onclick="showIfElse()">If-Else Statement</button>
+    <button onclick="showSwitch()">Switch Statement</button>
+    <p id="output"></p>
+    <script>
+      function showIf() {
+        let number = 10;
+        if (number > 5) {
+          document.getElementById("output").innerText =
+            "Number is greater than 5.";
+        }
+      }
+
+      function showIfElse() {
+        let number = 3;
+        if (number > 5) {
+          document.getElementById("output").innerText =
+            "Number is greater than 5.";
+        } else {
+          document.getElementById("output").innerText =
+            "Number is less than or equal to 5.";
+        }
+      }
+
+      function showSwitch() {
+        let day = new Date().getDay();
+        let dayName;
+        switch (day) {
+          case 0:
+            dayName = "Sunday";
+            break;
+          case 1:
+            dayName = "Monday";
+            break;
+          case 2:
+            dayName = "Tuesday";
+            break;
+          case 3:
+            dayName = "Wednesday";
+            break;
+          case 4:
+            dayName = "Thursday";
+            break;
+          case 5:
+            dayName = "Friday";
+            break;
+          case 6:
+            dayName = "Saturday";
+            break;
+          default:
+            dayName = "Unknown";
+        }
+        document.getElementById("output").innerText =
+          "Today is " + dayName + ".";
+      }
+    </script>
+  </body>
+</html>

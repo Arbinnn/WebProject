@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jQuery Lightbox</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+      .lightbox {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.8);
+        justify-content: center;
+        align-items: center;
+      }
+      .lightbox img {
+        max-width: 80%;
+        max-height: 80%;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- add images -->
+    <img src="image1.jpg" alt="Thumbnail" class="thumbnail" />
+    <div class="lightbox">
+      <img src="" alt="Lightbox Image" />
+    </div>
+    <script>
+      (function ($) {
+        $.fn.lightbox = function () {
+          this.click(function () {
+            const imgSrc = $(this).attr("src");
+            $(".lightbox img").attr("src", imgSrc);
+            $(".lightbox").fadeIn();
+          });
+
+          $(".lightbox").click(function () {
+            $(this).fadeOut();
+          });
+
+          return this;
+        };
+      })(jQuery);
+
+      $(document).ready(function () {
+        $(".thumbnail").lightbox();
+      });
+    </script>
+  </body>
+</html>

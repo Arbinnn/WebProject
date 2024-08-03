@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jQuery Slider</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+      .slider {
+        width: 300px;
+        overflow: hidden;
+      }
+      .slides {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+      }
+      .slide {
+        min-width: 100%;
+        box-sizing: border-box;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="slider">
+      <div class="slides">
+        <!-- add images -->
+        <div class="slide"><img src="image1.jpg" alt="Image 1" /></div>
+        <div class="slide"><img src="image2.jpg" alt="Image 2" /></div>
+        <div class="slide"><img src="image3.jpg" alt="Image 3" /></div>
+      </div>
+    </div>
+    <button id="next">Next</button>
+    <script>
+      (function ($) {
+        $.fn.slider = function () {
+          let currentIndex = 0;
+          const slides = $(this).find(".slides");
+          const slideCount = slides.children().length;
+
+          function showNextSlide() {
+            currentIndex = (currentIndex + 1) % slideCount;
+            slides.css("transform", `translateX(-${currentIndex * 100}%)`);
+          }
+
+          $("#next").click(showNextSlide);
+
+          return this;
+        };
+      })(jQuery);
+
+      $(document).ready(function () {
+        $(".slider").slider();
+      });
+    </script>
+  </body>
+</html>

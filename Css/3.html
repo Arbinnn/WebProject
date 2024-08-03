@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Floating Template</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
+      .container {
+        width: 100%;
+        overflow: hidden;
+      }
+      .left,
+      .right {
+        width: 45%;
+        float: left;
+        margin: 2.5%;
+        padding: 20px;
+        box-sizing: border-box;
+        background-color: lightgrey;
+      }
+      .left {
+        background-color: lightblue;
+      }
+      .right {
+        background-color: lightcoral;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="left">Left content</div>
+      <div class="right">Right content</div>
+    </div>
+  </body>
+</html>
